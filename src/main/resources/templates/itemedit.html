@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Page</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+<center>
+<h2>Product details :  <b th:text="${itemlist.product}"></b></h2>
+
+<form action="#" th:action="@{'/edit/'+${itemlist.product_id}}" method="post">
+<table class="table table-striped text-center ">
+
+	<tr><td> Product_id : <input type="text" th:value="${itemlist.product_id}" class="field left" readonly></td></tr> 
+	<tr><td> Product : <input type="text" th:value="${itemlist.product}" class="field left" readonly></td></tr> 
+	<tr><td> Price : <input type="text" th:value="${itemlist.price}" name="price" field="*{price}"></td></tr> 
+	<tr><td> Category : <input type="text" th:value="${itemlist.category}" name="category" field="*{category}"> </td></tr>
+	<br><br>
+	<tr><td> <input type="submit" class="btn btn-primary" value="Edit">
+	</td>
+	</tr>
+    </table>
+    </form>
+    </center>
+
+</body>
+</html>

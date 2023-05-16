@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SignUp Page</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style type="text/css">
+    input[type=text] {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+    .form1{
+    padding: 35px;
+    }
+    </style>
+</head>
+<body>
+    <form action="#" th:action="@{/saveuser}" method="post" class="form1">
+ <div class="row">
+Enter your email id : 
+<input type="email" class="form-control" field="*{emailId}" name="emailId" >
+</div>
+<div class="row"> 
+Enter your password :
+<input type="password" class="form-control" field="*{pass_word}" name="pass_word" ></div>
+<div class="row"> 
+Enter First Name :
+<input type="text" class="form-control" field="*{firstName}" name="firstName" ></div>
+<div class="row"> 
+Enter Last Name :
+<input type="text" class="form-control" field="*{lastName}" name="lastName" ></div>
+
+<div class="row"> 
+Enter gender :&nbsp;&nbsp;&nbsp;
+<select field="*{gender}" name="gender">
+    <option th:value="'M'" th:text="Male"></option>
+    <option th:value="'F'" th:text="Female"></option>
+</select>
+</div><br>
+
+<div class="row"> 
+Enter country : &nbsp;&nbsp;&nbsp;
+<select field="*{country}" name="country">
+    <option th:value="'India'" th:text="India"></option>
+    <option th:value="'USA'" th:text="USA"></option>
+    <option th:value="'Australia'" th:text="Australia"></option>
+</select>
+</div>
+<div class="row"> 
+<br>
+Enter date of Birth :
+<input type="date" class="form-control" field="*{date_of_birth}" name="date_of_birth" size="60">
+</div>
+
+<br>
+
+<input type="submit" class="btn btn-primary" value="login">
+</form>
+
+</body>
+</html>

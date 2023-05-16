@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Login Page</title>
+<link rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+    .myAdmin{
+      border: 5px outset red;
+  background-color: brown;
+  text-align: center;
+    }
+    </style>
+</head>
+<body style="background-color:Azure;">
+<div class="myAdmin"><h1>Welcome Admin!!!</h1>&nbsp;&nbsp;&nbsp;
+</div>
+<table class="table table-stripped">
+<thead>
+<th>
+PRODUCT_ID
+</th>
+<th>
+PRODUCT_NAME
+</th>
+<th>
+PRICE
+</th>
+<th>
+CATEGORY
+</th>
+</thead>
+<tr th:each="x:${getallitems}">
+    <td th:text="${x.product_id}"></td>
+    <td th:text="${x.product}"></td>
+    <td th:text="${x.price}"></td>
+    <td th:text="${x.category}"></td>
+ 	<td><a th:href="@{'/edititem/'+${x.product_id}}">Edit</td> 
+ 	<td><a th:href="@{'/deleteitem/'+${x.product_id}}">Delete</td>
+ </tr>
+ 
+</table>
+<br><br>
+<a th:href="@{'/changepassword'}" class="btn btn-info" role="button">Change Password</a>&nbsp;&nbsp;
+<a th:href="@{'/additemtodb'}" class="btn btn-info" role="button">Add Item</a>&nbsp;&nbsp;
+<a th:href="@{'/logout'}" class="btn btn-info" role="button">LogOut</a><br><br>
+<div role="alert" th:text="${success}" th:if="${success}"></div>
+</body>
+</html>
